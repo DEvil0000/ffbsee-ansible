@@ -9,7 +9,7 @@
 
 - name: Update packages and users on all nodes
   hosts: gw_test.ffbsee.net
-  tags: 
+  tags:
   - base
   - users
   - home
@@ -32,7 +32,7 @@
 
 - name: Update packages and users on all nodes
   hosts: gw_test.ffbsee.net
-  tags: 
+  tags:
   - home_environment
   - motd
   roles:
@@ -48,7 +48,7 @@
 #  - interfaces
 #  roles:
 #    - network
-  
+
 - name: Configure freifunk network setup for gw_test.ffbsee.net
   hosts: gw_test.ffbsee.net
   tags:
@@ -66,7 +66,7 @@
 
 - name: Configure network routing for gw_test.ffbsee.net
   hosts: gw_test.ffbsee.net
-  tags: 
+  tags:
   - routing
   - iptables
   - ip6tables
@@ -76,7 +76,7 @@
 
 - name: Configure network routing for gw_test.ffbsee.net
   hosts: gw_test.ffbsee.net
-  tags: 
+  tags:
   - routing
   - dhcp
   - dhcpd
@@ -91,7 +91,7 @@
 
 - name: Configure network routing for gw_test.ffbsee.net
   hosts: gw_test.ffbsee.net
-  tags: 
+  tags:
   - dns
   - unbound
   - role-unbound
@@ -142,9 +142,9 @@
         dest: "{{ grafana_dashboard_dir }}/{{ item }}"
         mode: '0644'
         remote_src: yes
-  loop:
-    - freifunk_overview.json
-    - freifunk_router_detail.json
+      loop:
+      - freifunk_overview.json
+      - freifunk_router_detail.json
 
 - name: install golang
   hosts: map.ffbsee.net
